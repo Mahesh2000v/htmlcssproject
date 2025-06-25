@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Student table</h1>
+    <section>
+        <table>
+            <tr>
+                <th>roll no</th>
+                <th>Name</th>
+                <th>class</th>
+                <th>subject</th>
+                <th>grades</th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>laxman</td>
+                <td>cse ds</td>
+                <td>m1</td>
+                <td>85%</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>ramesh</td>
+                <td>cse ds</td>
+                <td>m1</td>
+                <td>70%</td>
+            </tr>
+                
+
+        </table>
+    </section>
+</body>
+</html>
