@@ -1,0 +1,32 @@
+*{
+    text-align: center;
+}
+body{
+    background-color: rgb(138, 117, 220);
+    font-family: 'Courier New', Courier, monospace;
+}
+button{
+    background-color:gold;
+    color:red;
+    cursor: pointer;
+    width: 50px;
+}
+button:hover{
+    background-color: aliceblue;
+    color: black;
+    transition: 3ms;
+}
+#area{
+    background-color: beige;
+    color: rgb(0, 0, 0);
+    border: 2px solid red;
+    border-radius: 10px;
+}
+.container{
+    background-color:rgb(174, 168, 168) ;
+    border: 20px solid rgb(216, 12, 121);
+    margin-top: 100px;
+    margin-left: 450px;
+    width: 500px;
+    height: 300px;
+}
