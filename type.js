@@ -1,0 +1,67 @@
+const sentences = [
+ 'Jackdaws love my big sphinx of quartz',
+  'The quick brown fox jumps over the lazy dog',
+  'Pack my box with five dozen liquor jugs',
+  'Bright vixens jump; dozy fowl quack',
+  'Student send the message to his crush'
+];
+
+let sentence = document.querySelector('.sentence');
+let textarea = document.getElementById('area');
+let timerElement = document.getElementById('timer');
+let errorsElement = document.getElementById('errors');
+let accuracyElement = document.getElementById('accuracy');
+let currentSentence = "";
+let timer = 0;
+let interval = null;
+let errors = 0;
+let startTime;
+
+function startGame() {
+  errors = 0;
+  timer = 0;
+  document.getElementsById("timer").textContent = '0';
+  document.getElementById("timer").textarea.value = '';
+  document.getElementById("error").textContent = 'Errors: 0';
+  document.getElementById("accuracy").textContent = 'Accuracy: 0%';
+  let randomSentence = sentences[Math.floor(Math.random() * sentences.length)];
+  sentence.textContent = randomSentence;
+  currentSentence = randomSentence;
+  startTime = new Date().getTime();
+  interval = setInterval(updateTimer, 1000);
+}
+
+function updateTimer() {
+  timer++;
+  timerElement.textContent = timer;
+  handle();
+}
+
+function handle() {
+  const typedText = textarea.value;
+  const original = currentSentence.substring(0, typedText.length);
+  if (typedText === currentSentence) {
+    clearInterval(interval);
+    textarea.disabled = true;
+    alert("Done! Time: " + timer + " seconds, Errors: " + errors);
+    return;
+  }
+
+  if (typedText !== original) {
+    errors = getErrors(typedText, currentSentence);
+  }
+
+  const accuracy = Math.max(0, Math.floor(((typedText.length - errors) / Math.max(typedText.length, 1)) * 100));
+  errorsElement.textContent = 'Errors: ' + errors;
+  accuracyElement.textContent = 'Accuracy: ' + accuracy + '%';
+}
+
+function getErrors(typedText, originalText) {
+  let errors = 0;
+  for (let i = 0; i < typedText.length; i++) {
+    if (typedText[i] !== originalText[i]) {
+      errors++;
+    }
+  }
+  return errors;
+}
